@@ -26,3 +26,18 @@ mutation UpdateTodos {
   
   deleteTodo(id: 3)
 }
+
+mutation CreateTodo {
+  createTodo(input: {
+    title: "qwe2222222222", 
+    completed: false,
+    steps:[{
+      title: "fdfdd",
+      completed: true
+    }]
+  }) {
+    id
+    title
+    completed
+  }
+}
