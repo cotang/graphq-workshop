@@ -1,43 +1,41 @@
-query GetTodos{
+query GetTodos {
   todos {
-		id
+    id
     title
     completed
-    steps{
+    steps {
       title
       completed
     }
   }
 }
 
-mutation UpdateTodos {
-  updateTodo(id: 1, input: {
-    title: "qwe", 
-    completed: false,
-    steps:[{
-      title: "fdfdd",
-      completed: true
-    }]
-  }) {
+mutation CreateTodos($input: TodoInput!) {
+  createTodo(input: $input) {
     id
     title
     completed
   }
-  
-  deleteTodo(id: 3)
 }
 
-mutation CreateTodo {
-  createTodo(input: {
-    title: "qwe2222222222", 
-    completed: false,
-    steps:[{
-      title: "fdfdd",
-      completed: true
-    }]
-  }) {
+mutation UpdateTodos($input: TodoInput!) {
+  updateTodo(id: "5dbae1d6a79f3e1974876ffb", input: $input) {
     id
     title
     completed
+  }
+}
+
+mutation DeleteTodos {
+  deleteTodo(id: "5dbaf864683a1b895c46f177")
+}
+
+===
+
+query variables:
+
+{
+  "input": {
+    "title": "Zxbcbvcfvcdfv"
   }
 }
